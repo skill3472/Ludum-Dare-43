@@ -485,9 +485,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: Wave 1
+  - name: Tutorial Wave
     enemy: {fileID: 4939851639763608, guid: dd0b3b045a140db4d97d289e2118250d, type: 2}
     count: 1
+    rate: 1
+  - name: Basic Enemies Wave 1
+    enemy: {fileID: 4939851639763608, guid: dd0b3b045a140db4d97d289e2118250d, type: 2}
+    count: 3
+    rate: 1
+  - name: Basic Enemies Wave 2
+    enemy: {fileID: 4939851639763608, guid: dd0b3b045a140db4d97d289e2118250d, type: 2}
+    count: 5
     rate: 1
   spawnPoints:
   - {fileID: 1296844681}
