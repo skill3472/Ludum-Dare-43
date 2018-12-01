@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
 		Debug.Log("COL!");
 		if(col.gameObject.tag == "Bullet")
@@ -31,6 +31,16 @@ public class EnemyController : MonoBehaviour {
 			Destroy(col.gameObject);
 			hp = hp - 1;
 			hitSound.Play();
+		}
+	}
+	void OnCollisionEnter2D(Collision2D colll)
+	{
+
+		if(colll.gameObject.tag == "Bunker")
+		{
+			Debug.Log("OOOF!");
+			colll.gameObject.GetComponent<Life>().lifePoints -= 10;
+			Destroy(gameObject);
 		}
 	}
 }
