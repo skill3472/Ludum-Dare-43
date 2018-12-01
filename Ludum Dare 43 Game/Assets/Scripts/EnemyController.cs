@@ -5,9 +5,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour {
 
 	[SerializeField]private int hp = 5;
+	AudioSource hitSound;
 	// Use this for initialization
 	void Start () {
-		
+		hitSound = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -26,6 +27,7 @@ public class EnemyController : MonoBehaviour {
 		{
 			hp = hp - 1;
 			Destroy(col.gameObject);
+			hitSound.Play();
 		}
 	}
 }

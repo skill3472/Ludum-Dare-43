@@ -7,9 +7,10 @@ public class Shooting : MonoBehaviour {
 	public GameObject projectile;
 	public Transform shootingPoint;
 	private bool isPressed = false;
+	AudioSource pistolShot;
 	// Use this for initialization
 	void Start () {
-		
+		pistolShot = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -24,6 +25,7 @@ public class Shooting : MonoBehaviour {
         	if(isPressed == false)
         	{
         		Instantiate(projectile,shootingPoint.position,shootingPoint.rotation);
+        		pistolShot.Play();
         		isPressed = true;
         	}
         }
