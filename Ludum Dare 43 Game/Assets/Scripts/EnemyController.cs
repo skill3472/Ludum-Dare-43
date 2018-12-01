@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour {
 
@@ -16,6 +17,8 @@ public class EnemyController : MonoBehaviour {
 		transform.Translate(Vector2.right * Time.deltaTime);
 		if(hp <= 0)
 		{
+			//rage = rage + 10;
+			GameObject.Find("Game Manager").GetComponent<Rage>().realRage += 10;
 			Destroy(gameObject);
 		}
 	}
@@ -25,8 +28,8 @@ public class EnemyController : MonoBehaviour {
 		Debug.Log("COL!");
 		if(col.gameObject.tag == "Bullet")
 		{
-			hp = hp - 1;
 			Destroy(col.gameObject);
+			hp = hp - 1;
 			hitSound.Play();
 		}
 	}

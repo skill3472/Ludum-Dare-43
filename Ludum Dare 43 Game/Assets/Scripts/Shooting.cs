@@ -22,11 +22,14 @@ public class Shooting : MonoBehaviour {
         //Shooting
         if(Input.GetMouseButtonDown(0))
         {
-        	if(isPressed == false)
+        	if(Time.timeScale != 0)
         	{
-        		Instantiate(projectile,shootingPoint.position,shootingPoint.rotation);
-        		pistolShot.Play();
-        		isPressed = true;
+        		if(isPressed == false)
+        		{
+        			Instantiate(projectile,shootingPoint.position,shootingPoint.rotation);
+        			pistolShot.Play();
+        			isPressed = true;
+        		}
         	}
         }
         if(Input.GetMouseButtonUp(0))
