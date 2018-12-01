@@ -3295,6 +3295,12 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 1776694708807050, guid: 204eb6cc7c01075489dc40eefd54b0ce, type: 2}
   shootingPoint: {fileID: 1776635161}
+  currentWeapon: {fileID: 11400000, guid: b16054a21e1e67643bd637aec4b5b5e8, type: 2}
+  listOfGuns:
+  - {fileID: 11400000, guid: b16054a21e1e67643bd637aec4b5b5e8, type: 2}
+  - {fileID: 11400000, guid: 419b96957c14be849b288dd0e83a50ac, type: 2}
+  - {fileID: 11400000, guid: aa37358fc1703ae4ba69ca0a8756e55c, type: 2}
+  GunText: {fileID: 1090887733}
 --- !u!82 &1776635163
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4252,7 +4258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7279878, y: 2.623125}
+  m_Size: {x: 2.7279878, y: 9}
   m_EdgeRadius: 0
 --- !u!212 &2050512438
 SpriteRenderer:
@@ -4327,6 +4333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifePoints: 50
   LifeText: {fileID: 2009589350}
+  explosion: {fileID: 1218665468325334, guid: a34c5788e8415564bbcaf8a76f91a450, type: 2}
+  isDead: 0
 --- !u!1 &2094748400
 GameObject:
   m_ObjectHideFlags: 0
