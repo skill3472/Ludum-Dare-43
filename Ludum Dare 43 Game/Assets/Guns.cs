@@ -1,9 +1,9 @@
-﻿using System.Collections;
+﻿/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapons")]
-public class Weapons : MonoBehaviour {
+public class Weapons : ScriptableObject {
 
 	public new string name;
 
@@ -12,3 +12,4 @@ public class Weapons : MonoBehaviour {
 	public int ammoInMag;
 	public int dmg;
 }
+*/

@@ -23,24 +23,55 @@ public class EnemyController : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D col)
+/*	void OnCollisionEnter2D(Collision2D col)
 	{
-		Debug.Log("COL!");
-		if(col.gameObject.tag == "Bullet")
+		Debug.Log(col.gameObject.name);
+		if(col.gameObject.tag == "AK47")
 		{
 			Destroy(col.gameObject);
 			hp = hp - 1;
 			hitSound.Play();
 		}
+		else if(col.gameObject.tag == "Pistol")
+		{
+			Destroy(col.gameObject);
+			hp = hp - 3;
+			hitSound.Play();
+		}
+		else if(col.gameObject.tag == "Sniper")
+		{
+			Destroy(col.gameObject);
+			hp = hp - 10;
+			hitSound.Play();
+		}
 	}
-	void OnCollisionEnter2D(Collision2D colll)
+*/	void OnCollisionEnter2D(Collision2D col)
 	{
 
-		if(colll.gameObject.tag == "Bunker")
+		if(col.gameObject.tag == "Bunker")
 		{
 			Debug.Log("OOOF!");
-			colll.gameObject.GetComponent<Life>().lifePoints -= 10;
+			col.gameObject.GetComponent<Life>().lifePoints -= 10;
 			Destroy(gameObject);
+		}
+		Debug.Log(col.gameObject.name);
+		if(col.gameObject.tag == "AK47")
+		{
+			Destroy(col.gameObject);
+			hp = hp - 1;
+			hitSound.Play();
+		}
+		if(col.gameObject.tag == "Pistol")
+		{
+			Destroy(col.gameObject);
+			hp = hp - 3;
+			hitSound.Play();
+		}
+		if(col.gameObject.tag == "Sniper")
+		{
+			Destroy(col.gameObject);
+			hp = hp - 10;
+			hitSound.Play();
 		}
 	}
 }

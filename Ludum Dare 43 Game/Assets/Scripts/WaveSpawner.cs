@@ -4,6 +4,7 @@ using System.Collections;
 public class WaveSpawner : MonoBehaviour {
 
 	public enum SpawnState { SPAWNING, WAITING, COUNTING };
+	public string CurrentWaveName;
 
 	[System.Serializable]
 	public class Wave
@@ -111,6 +112,7 @@ public class WaveSpawner : MonoBehaviour {
 	{
 		Debug.Log("Spawning Wave: " + _wave.name);
 		state = SpawnState.SPAWNING;
+		CurrentWaveName = _wave.name;
 
 		for (int i = 0; i < _wave.count; i++)
 		{
