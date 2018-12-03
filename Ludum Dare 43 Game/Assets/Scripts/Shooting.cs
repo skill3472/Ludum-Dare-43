@@ -16,6 +16,7 @@ public class Shooting : MonoBehaviour {
 	public Text GunText;
 	private float nextTimeToFire = 0f;
 	public float reloadTimeLocal;
+    public GameObject gm;
 	void Start () {
 		pistolShot = GetComponent<AudioSource>();
 		currentWeapon = weapon1;
@@ -37,7 +38,7 @@ public class Shooting : MonoBehaviour {
     	{
     		if(Time.timeScale != 0)
         	{
-        		if(currentWeapon.ammoLeft != 0)
+        		if(currentWeapon.ammoLeft != 0 && gm.GetComponent<GoodEnding>().cutscene == false)
         		{
         			projectile = currentWeapon.bulletPrefab;
         			nextTimeToFire = Time.time + 1f/currentWeapon.fireRate;

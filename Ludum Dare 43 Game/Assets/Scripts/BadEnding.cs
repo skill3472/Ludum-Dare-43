@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
-public class GoodEnding : MonoBehaviour {
+public class BadEnding : MonoBehaviour {
 
 	public GameObject UI1;
 	public GameObject UI2;
 	public GameObject UI3;
 	public GameObject UI4;
 	public GameObject UI5;
-	public GameObject GoodEndingButton;
-	public bool cutscene = false;
-	public PlayableDirector theGoodEnding;
-
+	public GameObject BadEndingButton;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,20 +21,18 @@ public class GoodEnding : MonoBehaviour {
 	void Update () {
 		
 	}
-	public void GoodEndingVoid()
+
+	public void BadEndingVoid()
 	{
 		UI1.SetActive(false);
 		UI2.SetActive(false);
 		UI3.SetActive(false);
 		UI4.SetActive(false);
 		UI5.SetActive(false);
-		GoodEndingButton.SetActive(true);
-		cutscene = true;
-		theGoodEnding.Play();
+		BadEndingButton.SetActive(true);
 	}
-	public void GoodEndingClick()
+	public void BadEndingClick()
 	{
-		theGoodEnding.Stop();
-		SceneManager.LoadScene("Good ending");
+		SceneManager.LoadScene("Bad ending");
 	}
 }

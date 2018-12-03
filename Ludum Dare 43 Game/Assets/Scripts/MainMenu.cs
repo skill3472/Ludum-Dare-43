@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void OnPlayClick()
 	{
-		SceneManager.LoadScene("Game");
+		SceneManager.LoadScene("Opening Scene");
 	}
 	public void OnCreditsClick()
 	{
