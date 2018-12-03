@@ -15,10 +15,13 @@ public class Shooting : MonoBehaviour {
 //	public Guns weapon4
 	public Text GunText;
 	private float nextTimeToFire = 0f;
-	// Use this for initialization
+	public float reloadTimeLocal;
 	void Start () {
 		pistolShot = GetComponent<AudioSource>();
 		currentWeapon = weapon1;
+		weapon1.ammoLeft = weapon1.ammoInMag;
+		weapon2.ammoLeft = weapon2.ammoInMag;
+		weapon3.ammoLeft = weapon3.ammoInMag;
 	}
 	
 	// Update is called once per frame
@@ -28,18 +31,33 @@ public class Shooting : MonoBehaviour {
     	float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
     	transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     	//Text setting
-    	GunText.text = currentWeapon.name;
+    	GunText.text = currentWeapon.name + " " + currentWeapon.ammoLeft + " / " + currentWeapon.ammoInMag;
     	//Shooting
     	if(Input.GetMouseButton(0) && Time.time >= nextTimeToFire)
     	{
     		if(Time.timeScale != 0)
         	{
-        		projectile = currentWeapon.bulletPrefab;
-        		nextTimeToFire = Time.time + 1f/currentWeapon.fireRate;
-   				Instantiate(projectile,shootingPoint.position,shootingPoint.rotation);
-   				pistolShot.Play();
+        		if(currentWeapon.ammoLeft != 0)
+        		{
+        			projectile = currentWeapon.bulletPrefab;
+        			nextTimeToFire = Time.time + 1f/currentWeapon.fireRate;
+   					Instantiate(projectile,shootingPoint.position,shootingPoint.rotation);
+   					currentWeapon.ammoLeft = currentWeapon.ammoLeft - 1;
+   					pistolShot.Play();
+   				}
        		}
 
+    	}
+    	if(Input.GetKeyDown("r") && currentWeapon.ammoLeft != currentWeapon.ammoInMag)
+    	{
+    		reloadTimeLocal -= Time.deltaTime;
+        	if(reloadTimeLocal > 0) 
+        	{
+        	}
+        	else 
+        	{
+        		currentWeapon.ammoLeft = currentWeapon.ammoInMag;
+        	}
     	}
     	//Changing weapons
     		if((weapon1.isUnlocked) && Input.GetKeyDown("1"))

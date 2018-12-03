@@ -9,8 +9,9 @@ public class Guns : ScriptableObject {
 	public new string name;
 	public GameObject bulletPrefab;
 	public int rageCost;
-	public int amountOfAmmo;
 	public int ammoInMag;
 	public int dmg;
+	public int ammoLeft;
 	public float fireRate;
+	public float reloadTime;
 }

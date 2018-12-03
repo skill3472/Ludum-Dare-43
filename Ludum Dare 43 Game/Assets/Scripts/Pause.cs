@@ -6,6 +6,7 @@ public class Pause : MonoBehaviour {
 
 	public GameObject pauseMenu;
 	private bool isDisabled = true;
+	public GameObject settingsMenu;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,5 +33,15 @@ public class Pause : MonoBehaviour {
 		pauseMenu.SetActive(false);
 		isDisabled = true;
 		Time.timeScale = 1f;
+	}
+	public void OnSettingsInGameClick()
+	{
+		pauseMenu.SetActive(false);
+		settingsMenu.SetActive(true);
+	}
+	public void OnQuitButton()
+	{
+		Debug.Log("Quit!");
+		Application.Quit();
 	}
 }
