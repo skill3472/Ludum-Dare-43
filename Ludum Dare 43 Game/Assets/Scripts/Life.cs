@@ -10,6 +10,7 @@ public class Life : MonoBehaviour {
 	public GameObject explosion;
 	public bool isDead = false;
 	private GameObject x;
+	public GameObject gm;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,7 +26,9 @@ public class Life : MonoBehaviour {
 				isDead = true;
 				x = Instantiate(explosion,transform.position,transform.rotation);
 				Destroy(x,2f);
+				gm.GetComponent<BadEnding>().BadEndingVoid();
 				Destroy(gameObject);
+
 			}
 		}
 	}
